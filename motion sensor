@@ -1,7 +1,7 @@
 // Define connection pins:
 #define pirPin 2
 #define ledPin 13
-
+//                                              Nice Code - Kyle Clays
 // Create variables:
 int val = 0;
 bool motionState = false; // We start with no motion detected.
