@@ -15,45 +15,40 @@ void setup(){
 
 void motoronthenoff(){
   int ontime = 5000;
-  int offtime = 000;
   soundval = analogRead(soundpin);
-  Serial.println(soundval,DEC);
+ Serial.println(soundval,DEC);
 
   if (soundval > 65 && soundval < 100)
   {
-    digitalWrite(motorpinA1,HIGH);
-    digitalWrite(motorpinA2,LOW);
-    digitalWrite(motorpinB1,HIGH);
-    digitalWrite(motorpinB2,LOW);
-    delay(ontime);
-    digitalWrite(motorpinA1,LOW);
-    digitalWrite(motorpinA2,LOW);
-    digitalWrite(motorpinB1,LOW);
-    digitalWrite(motorpinB2,LOW);
-    delay(offtime);
+  digitalWrite(motorpinA1,HIGH);
+  digitalWrite(motorpinA2,LOW);
+  digitalWrite(motorpinB1,HIGH);
+  digitalWrite(motorpinB2,LOW);
+  delay(ontime);
+  digitalWrite(motorpinA1,LOW);
+  digitalWrite(motorpinA2,LOW);
+  digitalWrite(motorpinB1,LOW);
+  digitalWrite(motorpinB2,LOW);
+  
   }
-  else if (soundval < 65)
-  {
-    delay(0);
-  }
+
   else if (soundval > 100)
   {
-    digitalWrite(motorpinA1,HIGH);
-    digitalWrite(motorpinA2,LOW);
-    digitalWrite(motorpinB1,LOW);
-    digitalWrite(motorpinB2,HIGH);
-    delay(2000);
-    digitalWrite(motorpinA1,HIGH);
-    digitalWrite(motorpinA2,LOW);
-    digitalWrite(motorpinB1,HIGH);
-    digitalWrite(motorpinB2,LOW);
-    delay(ontime);
-    digitalWrite(motorpinA1,LOW);
-    digitalWrite(motorpinA2,LOW);
-    digitalWrite(motorpinB1,LOW);
-    digitalWrite(motorpinB2,LOW);
-    delay(offtime);
-  
+  digitalWrite(motorpinA1,HIGH);
+  digitalWrite(motorpinA2,LOW);
+  digitalWrite(motorpinB1,LOW);
+  digitalWrite(motorpinB2,HIGH);
+  delay(2000);
+  digitalWrite(motorpinA1,HIGH);
+  digitalWrite(motorpinA2,LOW);
+  digitalWrite(motorpinB1,HIGH);
+  digitalWrite(motorpinB2,LOW);
+  delay(ontime);
+  digitalWrite(motorpinA1,LOW);
+  digitalWrite(motorpinA2,LOW);
+  digitalWrite(motorpinB1,LOW);
+  digitalWrite(motorpinB2,LOW);
+
   }
 
  
