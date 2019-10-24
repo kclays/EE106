@@ -1,0 +1,60 @@
+#include <Arduino.h>
+int motorpinA1 = 9;
+int motorpinA2 = 10;
+int motorpinB1 = 11;
+int motorpinB2 = 12;
+int soundval;
+int soundpin = A5;
+
+
+void setup(){
+  pinMode(motorpinA1,OUTPUT);
+  pinMode(motorpinA2,OUTPUT);
+  Serial.begin(9600);
+}
+
+void motoronthenoff(){
+  int ontime = 5000;
+  soundval = analogRead(soundpin);
+ Serial.println(soundval,DEC);
+
+  if (soundval > 65 && soundval < 100)
+    {
+    Serial.println("The car has detected a noise and will now drive straight");
+    digitalWrite(motorpinA1,HIGH);
+    digitalWrite(motorpinA2,LOW);
+    digitalWrite(motorpinB1,HIGH);
+    digitalWrite(motorpinB2,LOW);
+    delay(ontime);
+    digitalWrite(motorpinA1,LOW);
+    digitalWrite(motorpinA2,LOW);
+    digitalWrite(motorpinB1,LOW);
+    digitalWrite(motorpinB2,LOW);
+    Serial.println("The car has now finished moving");  
+    }
+
+  else if (soundval > 100)
+    {
+    Serial.println("The car has detected a loud noise and will now turn in circles and then drive");
+    digitalWrite(motorpinA1,HIGH);
+    digitalWrite(motorpinA2,LOW);
+    digitalWrite(motorpinB1,LOW);
+    digitalWrite(motorpinB2,HIGH);
+    delay(2000);
+    digitalWrite(motorpinA1,HIGH);
+    digitalWrite(motorpinA2,LOW);
+    digitalWrite(motorpinB1,HIGH);
+    digitalWrite(motorpinB2,LOW);
+    delay(ontime);
+    digitalWrite(motorpinA1,LOW);
+    digitalWrite(motorpinA2,LOW);
+    digitalWrite(motorpinB1,LOW);
+    digitalWrite(motorpinB2,LOW);
+    Serial.println("The car has now finished moving");
+    }
+
+ 
+  }
+  void loop(){
+    motoronthenoff();
+  }
